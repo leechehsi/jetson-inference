@@ -679,7 +679,8 @@ function install_pytorch_v210_python310_jp60()
 	
 	# install pip packages
 	pip3 install Cython
-	pip3 install numpy --verbose
+	# 20260926 Remove numpy installation
+	# pip3 install numpy --verbose 
 	pip3 install tensorboard --verbose
 	pip3 install onnx --verbose
 	
