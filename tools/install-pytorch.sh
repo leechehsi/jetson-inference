@@ -679,10 +679,12 @@ function install_pytorch_v210_python310_jp60()
 	
 	# install pip packages
 	pip3 install Cython
-	# 20260926 Remove numpy installation
+	# Jetson 原本 numpy 1.21.5，避免破壞 cv2 
 	# pip3 install numpy --verbose 
 	pip3 install tensorboard --verbose
-	pip3 install onnx --verbose
+	# ONNX 1.23.0 會要求 numpy >= 1.23.2
+	# 導致 pip 安裝 numpy 2.x
+	# pip3 install onnx --verbose
 	
 	# install pytorch wheel
 	download_wheel pip3 "torch-2.1.0-cp310-cp310-linux_aarch64.whl" "https://nvidia.box.com/shared/static/0h6tk4msrl9xz3evft9t0mpwwwkw7a32.whl" "sudo"
